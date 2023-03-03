@@ -1,48 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:smart_health/auth/auth.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePage extends StatelessWidget {
+  HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
+  final User? user = Auth().currentUser;
 
-class _HomePageState extends State<HomePage> {
+  Future<void> signOut() async {
+    await Auth().signOut();
+  }
 
-  int currentIndex = 0;
+  Widget _title() {
+    return const Text('Firebase Auth');
+  }
 
-  static const List body = [
-    Icon(Icons.home, size: 50,),
-    Icon(Icons.message, size: 50,),
-    Icon(Icons.schedule, size: 50,),
-    Icon(Icons.settings, size: 50,),
-  ];
+  Widget _userUid() {
+    return Text(user?.email ?? 'User email');
+  }
 
+  Widget _signOutButton() {
+    return ElevatedButton(onPressed: signOut, child: const Text("Sign Out"));
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: body.elementAt(currentIndex);
+    return Scaffold(
+      appBar: AppBar(
+        title: _title(),
       ),
-      bottomNavigationBar: NavigationBar(
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.message), label: 'Message'),
-          NavigationDestination(icon: Icon(Icons.schedule), label: 'Schedule'),
-          NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
-        ],
-        selectedIndex: currentIndex,
-        onDestinationSelected: int(index){
-          setState(() {
-            currentIndex=index;
-          });
-        },
-        
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [_userUid(), _signOutButton()],
+        ),
       ),
-      
     );
   }
 }
