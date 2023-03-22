@@ -40,9 +40,9 @@ class _HomePageState extends State<HomePage> {
     List<String> symptoms = [
       '🤒Temperature',
       '🤧Snuffle',
-      '🤕Headache',
-      '🤕Headache',
-      '🤕Headache',
+      '🤕Vomiting',
+      '🤕Nausea',
+      '🤕Body weakness',
       '🤕Headache',
       '🤕Headache',
     ];
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(
+          physics: const BouncingScrollPhysics(
               parent: BouncingScrollPhysics(
                   decelerationRate: ScrollDecelerationRate.fast)),
           child: Column(
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(
                             height: 12,
                           ),
-                          const Text("Fill out your medical card right now",
+                          const Text("Talk to a professional.",
                               style: TextStyle(fontSize: 14)),
                           const SizedBox(
                             height: 12,
@@ -143,13 +143,13 @@ class _HomePageState extends State<HomePage> {
                           InkWell(
                             onTap: signOut,
                             child: Container(
-                              padding: const EdgeInsets.all(12),
+                              padding: const EdgeInsets.all(13),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
                                   color: Colors.deepPurple[300]),
                               child: const Center(
                                 child: Text(
-                                  "Get Started",
+                                  "Book Appointment",
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
@@ -322,8 +322,76 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(height: 180, width: 180, child: Card()),
-                            Container(height: 180, width: 180, child: Card()),
+                            Container(
+                                height: 200,
+                                width: 180,
+                                child: Card(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 80,
+                                        width: 80,
+                                        decoration: BoxDecoration(
+                                            border: Border(),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: Image.asset(
+                                            "lib/assets/images/avatar.png"),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Dr. Chris Frazier",
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "Pediatrician",
+                                        style: TextStyle(
+                                            color: Colors.grey[600],
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
+                                )),
+                            Container(
+                                height: 200,
+                                width: 180,
+                                child: Card(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 80,
+                                        width: 80,
+                                        decoration: BoxDecoration(
+                                            border: Border(),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: Image.asset(
+                                            "lib/assets/images/avatar.png"),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Dr. Chris Frazier",
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "Pediatrician",
+                                        style: TextStyle(
+                                            color: Colors.grey[600],
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
+                                )),
                           ],
                         ),
                       ),
@@ -332,8 +400,76 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(height: 180, width: 180, child: Card()),
-                            Container(height: 180, width: 180, child: Card()),
+                            Container(
+                                height: 200,
+                                width: 180,
+                                child: Card(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 80,
+                                        width: 80,
+                                        decoration: BoxDecoration(
+                                            border: Border(),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: Image.asset(
+                                            "lib/assets/images/avatar.png"),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Dr. Chris Frazier",
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "Pediatrician",
+                                        style: TextStyle(
+                                            color: Colors.grey[600],
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
+                                )),
+                            Container(
+                                height: 200,
+                                width: 180,
+                                child: Card(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 80,
+                                        width: 80,
+                                        decoration: BoxDecoration(
+                                            border: Border(),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: Image.asset(
+                                            "lib/assets/images/avatar.png"),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Dr. Chris Frazier",
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "Pediatrician",
+                                        style: TextStyle(
+                                            color: Colors.grey[600],
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
+                                )),
                           ],
                         ),
                       ),
@@ -346,8 +482,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.grey[200],
-        elevation: 5.0,
+        backgroundColor: Colors.white54,
+        elevation: 2,
         destinations: const [
           NavigationDestination(
               icon: Icon(
@@ -356,11 +492,11 @@ class _HomePageState extends State<HomePage> {
               label: "Home"),
           NavigationDestination(
             icon: Icon(UniconsLine.envelopes),
-            label: "Messages",
+            label: "Appointments",
           ),
-          NavigationDestination(
-              icon: Icon(UniconsLine.schedule), label: "Schedule"),
-          NavigationDestination(icon: Icon(UniconsLine.cog), label: "Settings"),
+          // NavigationDestination(
+          //     icon: Icon(UniconsLine.schedule), label: "Schedule"),
+          NavigationDestination(icon: Icon(UniconsLine.cog), label: "Profile"),
         ],
         selectedIndex: currentPage,
         onDestinationSelected: (int value) {
