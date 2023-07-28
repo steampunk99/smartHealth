@@ -10,8 +10,8 @@ class AuthService {
       FirebaseDatabase.instance.ref().child('users');
 
   //sign up with email and password
-  Future<String?> signUpWithEmailAndPassword(
-      String email, String password, String fullName, UserRole role) async {
+  Future<String?> signUpWithEmailAndPassword(String email, String password,
+      String fullName, String phoneNumber, UserRole role) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
@@ -24,7 +24,8 @@ class AuthService {
         // Store additional user details in Firebase Realtime Database
         await _userRef.child(user.uid).set({
           'fullName': fullName,
-          'role': role.toString(),
+          'role': role.toString().split('.').last,
+          'phoneNumber': phoneNumber
         });
       }
       return user?.uid;
