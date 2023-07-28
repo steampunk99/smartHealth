@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:smart_health/screens/doctor_screen.dart';
-import 'package:smart_health/screens/login.dart';
-import 'package:smart_health/screens/patient_screen.dart';
-import 'package:smart_health/screens/pharmacist_screen.dart';
-import 'package:smart_health/screens/signup.dart';
+import 'package:smart_health/screens/doctor/doctor_screen.dart';
+import 'package:smart_health/screens/auth/login.dart';
+import 'package:smart_health/screens/patient/patient_screen.dart';
+import 'package:smart_health/screens/pharmacist/pharmacist_screen.dart';
+import 'package:smart_health/screens/auth/signup.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
