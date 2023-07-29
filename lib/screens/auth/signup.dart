@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_health/screens/auth/login.dart';
 import 'package:smart_health/screens/doctor/doctor_screen.dart';
 import 'package:smart_health/screens/patient/patient_screen.dart';
 import 'package:smart_health/screens/pharmacist/pharmacist_screen.dart';
@@ -17,6 +18,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final AuthService _authService = AuthService();
+
+  Color bg = Color(0xFF0062F8);
 
   UserRole _selectedUserRole = UserRole.patient;
   String? _phoneNumber;
@@ -64,14 +67,34 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Registration")),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         physics: BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 10),
+            SizedBox(height: 100),
+
+            //Upper text -welcome
+            Column(
+              children: const [
+                Text("CREATE YOUR ACCOUNT",
+                    style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'ibm')),
+                Text(
+                  "Join our community where health is priority",
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w400),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
 
             // Phone number field
             Padding(
@@ -86,7 +109,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         borderSide: BorderSide(color: Colors.blue)),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.lightBlue))),
+                        borderSide: BorderSide(color: Colors.white))),
                 onInputChanged: (PhoneNumber number) {
                   _phoneNumber = number.phoneNumber;
                 },
@@ -102,6 +125,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 10,
             ),
 
+            //Full name textfield
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
@@ -115,12 +139,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         borderSide: BorderSide(color: Colors.blue)),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.lightBlue))),
+                        borderSide: BorderSide(color: Colors.white))),
               ),
             ),
             SizedBox(
               height: 10,
             ),
+
+            //Email field
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
@@ -134,13 +160,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         borderSide: BorderSide(color: Colors.blue)),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.lightBlue))),
+                        borderSide: BorderSide(color: Colors.white))),
               ),
             ),
             SizedBox(
               height: 10,
             ),
 
+            //Password
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
@@ -154,7 +181,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         borderSide: BorderSide(color: Colors.blue)),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.lightBlue))),
+                        borderSide: BorderSide(color: Colors.white))),
                 obscureText: true,
               ),
             ),
@@ -172,10 +199,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     filled: true,
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.blue)),
+                        borderSide: BorderSide(color: Colors.white)),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.lightBlue))),
+                        borderSide: BorderSide(color: Colors.white))),
                 value: _selectedUserRole,
                 onChanged: (UserRole? newValue) {
                   setState(() {
@@ -191,18 +218,48 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 80,
             ),
 
             //Register Button
-            Container(
-              width: MediaQuery.of(context).size.width,
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
+                    style: const ButtonStyle(
+                        shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10)))),
+                        padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                        foregroundColor: MaterialStatePropertyAll(Colors.white),
+                        backgroundColor: MaterialStatePropertyAll(
+                            Color.fromARGB(255, 0, 98, 248))),
                     onPressed: _handleRegistration,
-                    child: Text('CREATE ACCOUNT')),
+                    child: const Text(
+                      'CREATE ACCOUNT',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                    )),
               ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Already have an account?",
+                    style: TextStyle(fontSize: 15)),
+                TextButton(
+                    onPressed: () => Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => LoginScreen())),
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                          fontSize: 16, color: Color.fromARGB(255, 0, 98, 248)),
+                    ))
+              ],
             )
           ],
         ),
