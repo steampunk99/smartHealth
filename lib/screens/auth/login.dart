@@ -63,21 +63,89 @@ class _LoginScreenState extends State<LoginScreen> {
         body: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            TextField(
-              controller: _emailController,
-              decoration: InputDecoration(hintText: 'Email'),
+            //Email field
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                controller: _emailController,
+                decoration: InputDecoration(
+                    hintText: 'Email',
+                    fillColor: Colors.grey[200],
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: Colors.blue)),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: Colors.white))),
+              ),
             ),
             SizedBox(
               height: 10,
             ),
-            TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(hintText: 'Password'),
+
+            //Password
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(
+                    hintText: 'Password',
+                    fillColor: Colors.grey[200],
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: Colors.blue)),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: Colors.white))),
+                obscureText: true,
+              ),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                    style: const ButtonStyle(
+                        shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10)))),
+                        padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                        foregroundColor: MaterialStatePropertyAll(Colors.white),
+                        backgroundColor: MaterialStatePropertyAll(
+                            Color.fromARGB(255, 0, 98, 248))),
+                    onPressed: _handleLogin,
+                    child: const Text(
+                      'LOGIN',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                    )),
+              ),
+            ),
+
             SizedBox(
               height: 10,
             ),
-            ElevatedButton(onPressed: _handleLogin, child: Text('Login')),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Don't have an account?", style: TextStyle(fontSize: 15)),
+                TextButton(
+                    onPressed: () => Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegistrationScreen())),
+                    child: Text(
+                      "Create Account",
+                      style: TextStyle(
+                          fontSize: 16, color: Color.fromARGB(255, 0, 98, 248)),
+                    ))
+              ],
+            ),
             SizedBox(
               height: 10,
             ),
