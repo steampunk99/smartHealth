@@ -72,9 +72,9 @@ class AuthService {
               .firstWhere((role) => role.toString() == userData['role']);
         }
       }
-      throw Exception('User not logged or role is not set');
+      throw Exception('Error getting user role');
     } catch (e) {
-      throw Exception(e);
+      throw Exception('Could not return user role $e');
     }
   }
 }

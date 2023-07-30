@@ -59,97 +59,124 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Login')),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            //Email field
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                    hintText: 'Email',
-                    fillColor: Colors.grey[200],
-                    filled: true,
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.blue)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.white))),
+        body: SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      physics: const BouncingScrollPhysics(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          //upper text
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              SizedBox(
+                height: 150,
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
+              Text(
+                "WELCOME BACK",
+                style: TextStyle(fontSize: 35),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Sign In to see what's happening in the community.",
+                style: TextStyle(fontSize: 18),
+              )
+            ],
+          ),
 
-            //Password
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(
-                controller: _passwordController,
-                decoration: InputDecoration(
-                    hintText: 'Password',
-                    fillColor: Colors.grey[200],
-                    filled: true,
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.blue)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.white))),
-                obscureText: true,
-              ),
+          const SizedBox(
+            height: 30,
+          ),
+          //Email field
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: TextField(
+              controller: _emailController,
+              decoration: InputDecoration(
+                  hintText: 'Email',
+                  fillColor: Colors.grey[200],
+                  filled: true,
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: const BorderSide(color: Colors.blue)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: const BorderSide(color: Colors.white))),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                child: ElevatedButton(
-                    style: const ButtonStyle(
-                        shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10)))),
-                        padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
-                        foregroundColor: MaterialStatePropertyAll(Colors.white),
-                        backgroundColor: MaterialStatePropertyAll(
-                            Color.fromARGB(255, 0, 98, 248))),
-                    onPressed: _handleLogin,
-                    child: const Text(
-                      'LOGIN',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-                    )),
-              ),
-            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
 
-            SizedBox(
-              height: 10,
+          //Password
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(
+                  hintText: 'Password',
+                  fillColor: Colors.grey[200],
+                  filled: true,
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: const BorderSide(color: Colors.blue)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: const BorderSide(color: Colors.white))),
+              obscureText: true,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Don't have an account?", style: TextStyle(fontSize: 15)),
-                TextButton(
-                    onPressed: () => Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RegistrationScreen())),
-                    child: Text(
-                      "Create Account",
-                      style: TextStyle(
-                          fontSize: 16, color: Color.fromARGB(255, 0, 98, 248)),
-                    ))
-              ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: ElevatedButton(
+                  style: const ButtonStyle(
+                      shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)))),
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                      foregroundColor: MaterialStatePropertyAll(Colors.white),
+                      backgroundColor: MaterialStatePropertyAll(
+                          Color.fromARGB(255, 0, 98, 248))),
+                  onPressed: _handleLogin,
+                  child: const Text(
+                    'LOGIN',
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                  )),
             ),
-            SizedBox(
-              height: 10,
-            ),
-          ]),
-        ));
+          ),
+
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("Don't have an account?",
+                  style: TextStyle(fontSize: 15)),
+              TextButton(
+                  onPressed: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RegistrationScreen())),
+                  child: const Text(
+                    "Create Account",
+                    style: TextStyle(
+                        fontSize: 16, color: Color.fromARGB(255, 0, 98, 248)),
+                  ))
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+        ]),
+      ),
+    ));
   }
 }
