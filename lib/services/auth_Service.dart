@@ -74,8 +74,7 @@ class AuthService {
       }
       throw Exception('User not logged or role is not set');
     } catch (e) {
-      print('Error getting user role $e');
-      throw e;
+      throw Exception(e);
     }
   }
 }
