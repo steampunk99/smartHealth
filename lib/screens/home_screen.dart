@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Dynaxo Health"),
       ),
-      body: Center(child: Text('Loading User Roles')),
+      body: Center(child: Text('Loading User ')),
     );
   }
 }
