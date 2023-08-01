@@ -22,9 +22,9 @@ class HomeScreen extends StatelessWidget {
     _getUserRole();
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dynaxo Health"),
+        title: const Text("Dynaxo Health"),
       ),
-      body: Center(child: Text('Loading.. ')),
+      body: const Center(child: Text('Loading.. ')),
     );
   }
 }
