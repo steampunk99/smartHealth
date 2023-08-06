@@ -12,11 +12,11 @@ class HomeScreen extends StatelessWidget {
     if (userRole == UserRole.patient) {
       //do nothing yet
     } else if (userRole == UserRole.pharmacist) {
-      //do nothing yet
+     
     } else if (userRole == UserRole.doctor) {
-      //do nothing yet
+     
     } else {
-      //do nothing yet
+     
     }
   }
 
