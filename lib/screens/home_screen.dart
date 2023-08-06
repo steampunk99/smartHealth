@@ -10,14 +10,9 @@ class HomeScreen extends StatelessWidget {
   void _getUserRole() async {
     UserRole? userRole = await _authService.getUserRole();
     if (userRole == UserRole.patient) {
-      //do nothing yet
     } else if (userRole == UserRole.pharmacist) {
-     
     } else if (userRole == UserRole.doctor) {
-     
-    } else {
-     
-    }
+    } else {}
   }
 
   @override
