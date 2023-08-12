@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
         title: const Text("Dynaxo Health"),
       ),
       body: const Center(child: Text('Loading.. ')),
-      //.........
+      //..........
     );
   }
 }
