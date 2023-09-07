@@ -72,6 +72,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         physics: BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(height: 100),
 
