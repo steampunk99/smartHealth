@@ -69,14 +69,17 @@ class _LoginScreenState extends State<LoginScreen> {
           //upper text
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
               SizedBox(
                 height: 150,
               ),
               Text(
                 "WELCOME BACK",
-                style: TextStyle(fontSize: 35),
+                style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.blueAccent),
               ),
               SizedBox(
                 height: 20,
