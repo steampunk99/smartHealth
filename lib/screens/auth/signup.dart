@@ -102,7 +102,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               child: InternationalPhoneNumberInput(
                 inputDecoration: InputDecoration(
                     hintText: 'Phone Number',
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.grey[150],
                     filled: true,
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -132,7 +132,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 controller: _fullNameController,
                 decoration: InputDecoration(
                     hintText: 'Full Name',
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.grey[150],
                     filled: true,
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -153,7 +153,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 controller: _emailController,
                 decoration: InputDecoration(
                     hintText: 'Email',
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.grey[150],
                     filled: true,
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -174,7 +174,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 controller: _passwordController,
                 decoration: InputDecoration(
                     hintText: 'Password',
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.grey[150],
                     filled: true,
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -195,7 +195,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               child: DropdownButtonFormField<UserRole>(
                 decoration: InputDecoration(
                     hintText: 'Select Account Type',
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.grey[150],
                     filled: true,
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
